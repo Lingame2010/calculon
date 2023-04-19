@@ -12,14 +12,13 @@ public class calculon {
 		Scanner scanner = new Scanner(System.in); // аапрос данных подряд?
 		String val1 = null;
 		String val2 = null;
-		
+		boolean arab = false;
  
 		
 		
 		
 		 int otvet = 0;
-		System.out.println(" калькулятор принимает римские и арабские числа от 1 до 10 \n вывод ответа арабскими числами? true or false"); 
-		boolean arab = scanner.nextBoolean();		
+		System.out.println(" калькулятор принимает римские и арабские числа от 1 до 10 ");
 		
 			System.out.println("Введите выражение "); 
 		String str = scanner.next();
@@ -31,6 +30,11 @@ public class calculon {
 			val2 = getval2(str,regex);
 			value1 = romanToArabic(val1);
 			value2 = romanToArabic(val2);
+								if(value1==-1 || value2==-1){
+			value1 = (Integer.parseInt(val1));		
+			value2 = (Integer.parseInt(val2));
+			arab=true;
+			}
 			if ((value1 <= 0) || (value1 > 10)) {
 		        throw new IllegalArgumentException("число не их допустимого диапазона");
 			}
@@ -54,6 +58,11 @@ public class calculon {
 			val2 = getval2(str,regex);
 			value1 = romanToArabic(val1);
 			value2 = romanToArabic(val2);
+					if(value1==-1 || value2==-1){
+			value1 = (Integer.parseInt(val1));		
+			value2 = (Integer.parseInt(val2));
+			arab=true;
+					}
 			if ((value1 <= 0) || (value1 > 10)) {
 		        throw new IllegalArgumentException("число не их допустимого диапазона");
 			}
@@ -65,6 +74,7 @@ public class calculon {
 			if (arab == false){
 			String otvets = arabicToRoman(otvet);
 			System.out.println(otvets);
+			
 			}else 
 			System.out.println(otvet);
         }
@@ -74,6 +84,11 @@ public class calculon {
 			val2 = getval2(str,regex);
 			value1 = romanToArabic(val1);
 			value2 = romanToArabic(val2);
+					if(value1==-1 || value2==-1){
+			value1 = (Integer.parseInt(val1));		
+			value2 = (Integer.parseInt(val2));
+			arab=true;			
+			}	
             if ((value1 <= 0) || (value1 > 10)) {
 		        throw new IllegalArgumentException("число не их допустимого диапазона");
 			}
@@ -96,6 +111,11 @@ public class calculon {
 			val2 = getval2(str,regex);
 			value1 = romanToArabic(val1);
 			value2 = romanToArabic(val2);
+								if(value1==-1 || value2==-1){
+			value1 = (Integer.parseInt(val1));		
+			value2 = (Integer.parseInt(val2));
+					arab=true;
+					}
 			if ((value1 <= 0) || (value1 > 10)) {
 		        throw new IllegalArgumentException("число не их допустимого диапазона");
 			}
@@ -164,7 +184,7 @@ private static int romanToArabic(String input) {
     }
 
     if (romanNumeral.length() > 0) {	    
-		return (Integer.parseInt(input));
+			return -1;
     }
 
     return result;
